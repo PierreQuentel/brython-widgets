@@ -41,7 +41,7 @@ All the boxes have a title bar, with a text and a "close" button.
 By default, dialog boxes are centered on the page. The _top_ and _left_
 positions can be passed as parameters.
 
-`InfoDialog([title, message, top, left, remove_after])`
+`InfoDialog(title="", message="", top=None, left=None, remove_after=None)`
 
 > displays an information dialog.
 >
@@ -49,3 +49,54 @@ positions can be passed as parameters.
 > - _message_ is the information message
 > - _remove_after_ is the number of seconds after which the dialog box is
 >   removed
+
+`EntryDialog(title="", message=None, top=None, left=None)`
+
+> displays a box with an input zone. When the user hits the "Ok" button or
+> the Enter key, the widget triggers a custom event called "entry". In the
+> callback function associated to this event, the attribute `value` of the
+> `EntryDialog` instance is set to the text entered in the input zone.
+
+> Example:
+<blockquote>
+```python
+from browser import bind
+import dialog
+
+entry = dialog.EntryDialog("Widgets test", "File name")
+@bind(entry, "entry")
+def handle(evt):
+    entry.remove()
+    dialog.InfoDialog("Widgets test", entry.value)
+```
+</blockquote>
+
+`Dialog(title="", top=None, left=None, ok_cancel=False)`
+
+> generic class for dialog boxes.
+>
+> - _ok_cancel_ determines if the box should have the two buttons "Ok" and
+>   "cancel"
+>
+> Instances of `Dialog` have an attribute `panel` where HTML elements can be
+> added by the usual Brython syntax
+>
+> Example:
+<blockquote>
+```python
+from browser import html
+import dialog
+
+themes = ["Sunrize", "Day", "Evening", "Sunset", "Night"]
+themes_dialog = dialog.Dialog("Widgets test", ok_cancel=True)
+selector = html.SELECT(html.OPTION(theme) for theme in themes)
+themes_dialog.panel <= selector
+
+@bind(selector, "change")
+def choose_theme(evt):
+    chosen = selector.options[selector.selectedIndex].value
+    themes_dialog.remove()
+    dialog.InfoDialog("Widgets test",f"Selected: {chosen}")
+```
+</blockquote>
+
