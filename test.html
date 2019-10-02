@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.7.5/brython.min.js">
+</script>
+<script src="widgets.brython.js"></script>
+<link rel="stylesheet" href="brython-widgets.css">
+</script>
+
+</head>
+<body onload="brython(1)">
+<script type="text/python">
+from browser import bind, document, html
+
+from widgets import dialog, menu
+from widgets.sub import a
+
+menubar = menu.Menu(document["menubar"])
+
+file_menu = menubar.add_menu("File")
+
+@file_menu.add_item("Open...")
+def open_file(evt):
+    entry = dialog.EntryDialog("Widgets test", "File name")
+    @bind(entry, "entry")
+    def handle(evt):
+        entry.remove()
+        dialog.InfoDialog("Widgets test", entry.value)
+
+menubar.add_item("Coucou")
+
+# dialog
+themes = ["Sunrize", "Day", "Evening", "Sunset", "Night"]
+themes_dialog = dialog.Dialog("Widgets test", ok_cancel=True)
+selector = html.SELECT(html.OPTION(theme) for theme in themes)
+themes_dialog.panel <= selector
+
+@bind(selector, "change")
+def choose_theme(evt):
+    chosen = selector.options[selector.selectedIndex].value
+    themes_dialog.remove()
+    dialog.InfoDialog("Widgets test",f"Selected: {chosen}")
+
+
+</script>
+
+<div id="menubar"></div>
+</body>
+</html>

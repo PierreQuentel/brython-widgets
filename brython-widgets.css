@@ -1,0 +1,68 @@
+:root {
+  --main-bg-color: CadetBlue;
+}
+
+.dialog{
+    font-family: arial;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-style: solid;
+    border-color: var(--main-bg-color);
+    border-width: 0 1px 1px 1px;
+    z-index: 0
+}
+
+.dialog-title{
+    background-color: var(--main-bg-color);
+    color: #fff;
+    padding: 0.4em;
+    cursor: default
+}
+.dialog-close{
+    float: right;
+    background-color: #fff;
+    color: #000;
+    cursor: default;
+    padding: 0.1em;
+    border-radius: 0.2em
+}
+
+.dialog-panel{
+    background-color: #fff;
+    color: #000;
+    padding: 0.6em
+}
+
+.menu-st1{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif
+}
+
+.menu-table{
+    border-spacing: 0
+}
+
+.menu-li-style1 {
+    background-color: var(--main-bg-color);
+    color: #fff;
+    padding: 0.5em 1em 0.5em 1em;
+    cursor: default
+}
+
+.menu-li-style2{
+    background-color: #fff;
+    color: var(--main-bg-color);
+    padding: 0.25em 1em 0.25em 1em;
+    cursor: default
+}
+
+.menu-div{
+    position: absolute;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--main-bg-color)
+}
+
