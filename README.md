@@ -36,7 +36,8 @@ Instances of `Menu` have 2 methods:
 The module __`dialog`__ exposes classes used to display various sorts of
 dialog boxes.
 
-All the boxes have a title bar, with a text and a "close" button.
+All the boxes have a title bar, with a text and a "close" button. The text is
+set by the parameter _title_ in all dialog classes.
 
 By default, dialog boxes are centered on the page. The _top_ and _left_
 positions can be passed as parameters.
@@ -45,7 +46,6 @@ positions can be passed as parameters.
 
 > displays an information dialog.
 >
-> - _title_ is the text on the title bar
 > - _message_ is the information message
 > - _remove_after_ is the number of seconds after which the dialog box is
 >   removed
@@ -78,7 +78,7 @@ def handle(evt):
 >   "cancel"
 >
 > Instances of `Dialog` have an attribute `panel` where HTML elements can be
-> added by the usual Brython syntax
+> added by the usual Brython syntax.
 >
 > Example:
 
@@ -95,7 +95,7 @@ themes_dialog.panel <= selector
 def choose_theme(evt):
     chosen = selector.options[selector.selectedIndex].value
     themes_dialog.remove()
-    dialog.InfoDialog("Widgets test",f"Selected: {chosen}")
+    dialog.InfoDialog("Widgets test", f"Selected: {chosen}")
 ```
 
 
