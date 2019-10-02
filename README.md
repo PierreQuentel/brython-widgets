@@ -58,7 +58,7 @@ positions can be passed as parameters.
 > `EntryDialog` instance is set to the text entered in the input zone.
 
 > Example:
-<blockquote>
+
 ```python
 from browser import bind
 import dialog
@@ -69,7 +69,6 @@ def handle(evt):
     entry.remove()
     dialog.InfoDialog("Widgets test", entry.value)
 ```
-</blockquote>
 
 `Dialog(title="", top=None, left=None, ok_cancel=False)`
 
@@ -82,8 +81,6 @@ def handle(evt):
 > added by the usual Brython syntax
 >
 > Example:
-
-<blockquote>
 
 ```python
 from browser import html
@@ -101,5 +98,4 @@ def choose_theme(evt):
     dialog.InfoDialog("Widgets test",f"Selected: {chosen}")
 ```
 
-</blockquote>
 
