@@ -42,6 +42,8 @@ set by the parameter _title_ in all dialog classes.
 By default, dialog boxes are centered on the page. The _top_ and _left_
 positions can be passed as parameters.
 
+All dialog objects have a method `close()` to remove the dialog.
+
 `InfoDialog(title="", message="", top=None, left=None, remove_after=None)`
 
 > displays an information dialog.
@@ -66,7 +68,7 @@ import dialog
 entry = dialog.EntryDialog("Widgets test", "File name")
 @bind(entry, "entry")
 def handle(evt):
-    entry.remove()
+    entry.close()
     dialog.InfoDialog("Widgets test", entry.value)
 ```
 
@@ -94,7 +96,7 @@ themes_dialog.panel <= selector
 @bind(selector, "change")
 def choose_theme(evt):
     chosen = selector.options[selector.selectedIndex].value
-    themes_dialog.remove()
+    themes_dialog.close()
     dialog.InfoDialog("Widgets test", f"Selected: {chosen}")
 ```
 
