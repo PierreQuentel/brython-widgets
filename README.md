@@ -82,7 +82,9 @@ def handle(evt):
 > added by the usual Brython syntax
 >
 > Example:
+
 <blockquote>
+
 ```python
 from browser import html
 import dialog
@@ -98,5 +100,6 @@ def choose_theme(evt):
     themes_dialog.remove()
     dialog.InfoDialog("Widgets test",f"Selected: {chosen}")
 ```
+
 </blockquote>
 
