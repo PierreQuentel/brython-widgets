@@ -7,7 +7,10 @@ The package can be included in an HTML page by
 <script src="https://cdn.jsdelivr.net/gh/PierreQuentel/brython-widgets/brython-widgets.brython.js"></script>
 ```
 
-# menu
+
+# Modules
+
+## menu
 
 The module __`menu`__ exposes a single class:
 
@@ -31,13 +34,14 @@ Instances of `Menu` have 2 methods:
 > the `Menu` class, so that other items and submenus can be added to it with
 > the same methods `add_item()` and `add_menu()`
 
-# dialog
+## dialog
 
 The module __`dialog`__ exposes classes used to display various sorts of
 dialog boxes.
 
 All the boxes have a title bar, with a text and a "close" button. The text is
-set by the parameter _title_ in all dialog classes.
+set by the parameter _title_ in all dialog classes. The box can be moved on
+the window by clicking on the title bar and moving the mouse.
 
 By default, dialog boxes are centered on the page. The _top_ and _left_
 positions can be passed as parameters.
@@ -80,7 +84,7 @@ def handle(evt):
 >   "cancel"
 >
 > Instances of `Dialog` have an attribute `panel` where HTML elements can be
-> added by the usual Brython syntax.
+> added by the usual Brython syntax to build more complex dialogs.
 >
 > Example:
 
@@ -88,7 +92,7 @@ def handle(evt):
 from browser import html
 import dialog
 
-themes = ["Sunrize", "Day", "Evening", "Sunset", "Night"]
+themes = ["Sunrise", "Day", "Evening", "Sunset", "Night"]
 themes_dialog = dialog.Dialog("Widgets test", ok_cancel=True)
 selector = html.SELECT(html.OPTION(theme) for theme in themes)
 themes_dialog.panel <= selector
@@ -100,4 +104,6 @@ def choose_theme(evt):
     dialog.InfoDialog("Widgets test", f"Selected: {chosen}")
 ```
 
+# Styling
 
+A default CSS stylesheet is provided in __`brython-widgets.css`__.
