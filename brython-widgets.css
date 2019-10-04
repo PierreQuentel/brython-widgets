@@ -1,25 +1,33 @@
 :root {
-  --main-bg-color: CadetBlue;
+  --main-bg-color: #fff;
+  --dialog-title-bg-color: CadetBlue;
+  --top-hover-bg-color: #cde;
+  --sub-hover-color: #fff;
+  --sub-hover-bg-color: CadetBlue;
+  --selected-color: CadetBlue;
+  --main-color: #000;
+  --main-font-family: Arial;
 }
 
-.dialog{
-    font-family: arial;
+.dialog {
+    font-family: var(--main-font-family);
     position: absolute;
     left: 10px;
     top: 10px;
     border-style: solid;
-    border-color: var(--main-bg-color);
-    border-width: 0 1px 1px 1px;
+    border-color: var(--main-color);
+    border-width: 1px;
     z-index: 0
 }
 
-.dialog-title{
-    background-color: var(--main-bg-color);
-    color: #fff;
+.dialog-title {
+    background-color: var(--dialog-title-bg-color);
+    color: var(--main-color);
     padding: 0.4em;
     cursor: default
 }
-.dialog-close{
+
+.dialog-close {
     float: right;
     background-color: #fff;
     color: #000;
@@ -28,41 +36,69 @@
     border-radius: 0.2em
 }
 
-.dialog-panel{
+.dialog-panel {
     background-color: #fff;
     color: #000;
     padding: 0.6em
 }
 
-.menu-st1{
+.menu-row {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    font-family: sans-serif
+    font-family: var(--main-font-family);
 }
 
-.menu-table{
+.menu-table {
     border-spacing: 0
 }
 
-.menu-li-style1 {
+.menu-item-top {
+    font-family: var(--main-font-family);
     background-color: var(--main-bg-color);
-    color: #fff;
+    color: var(--main-color);
     padding: 0.5em 1em 0.5em 1em;
     cursor: default
 }
 
-.menu-li-style2{
-    background-color: #fff;
-    color: var(--main-bg-color);
+.menu-item-top:hover {
+    background-color: var(--top-hover-bg-color);
+}
+
+.menu-item-top-selected {
+    font-family: var(--main-font-family);
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+    padding: 0.5em 1em 0.5em 1em;
+    cursor: default
+}
+
+.menu-item-top-selected:hover {
+    font-family: var(--main-font-family);
+    background-color: var(--selected-color);
+    color: var(--main-color);
+    padding: 0.5em 1em 0.5em 1em;
+    cursor: default
+}
+
+.menu-item-sub {
+    font-family: var(--main-font-family);
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
     padding: 0.25em 1em 0.25em 1em;
     cursor: default
 }
 
-.menu-div{
+.menu-item-sub:hover {
+    color: var(--sub-hover-color);
+    background-color: var(--sub-hover-bg-color);
+}
+
+
+.submenu{
     position: absolute;
     border-style: solid;
     border-width: 1px;
-    border-color: var(--main-bg-color)
+    border-color: var(--main-color)
 }
 
