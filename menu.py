@@ -123,10 +123,7 @@ class Menu:
         @bind(elt, "mousedown")
         def dblclick(ev):
             if ev.detail > 1:
-                print("double click")
                 ev.preventDefault()
-                ev.stopPropagation()
-
 
     def reset(self, evt):
         self.hide_submenus()
