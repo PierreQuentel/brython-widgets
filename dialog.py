@@ -16,7 +16,7 @@ class Dialog(html.DIV):
         self <= self._title
         btn = html.SPAN("&times;", Class="dialog-close")
         self._title <= btn
-        btn.bind("click", self.close)
+        btn.bind("click", self.remove)
         self.panel = html.DIV(Class="dialog-panel")
         self <= self.panel
 
@@ -24,7 +24,7 @@ class Dialog(html.DIV):
             ok_cancel_zone = html.DIV(style={"text-align": "center"})
             self.ok_button = html.BUTTON("Ok")
             self.cancel_button = html.BUTTON("Cancel")
-            self.cancel_button.bind("click", self.close)
+            self.cancel_button.bind("click", self.remove)
             ok_cancel_zone <= self.ok_button + self.cancel_button
             self <= ok_cancel_zone
 
@@ -46,11 +46,7 @@ class Dialog(html.DIV):
         self._title.bind("mousedown", self.mousedown)
         document.bind("mousemove", self.mousemove)
         self._title.bind("mouseup", self.mouseup)
-        self.bind("leave", self.mouseup)
         self.is_moving = False
-
-    def close(self, *args):
-        self.remove()
 
     def mousedown(self, event):
         self.is_moving = True
