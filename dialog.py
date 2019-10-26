@@ -111,4 +111,4 @@ class InfoDialog(Dialog):
             if not isinstance(remove_after, (int, float)):
                 raise TypeError("remove_after should be a number, not " +
                     str(remove_after.__class__.__name__))
-            window.setTimeout(self.close, remove_after * 1000)
+            window.setTimeout(self.remove, remove_after * 1000)
